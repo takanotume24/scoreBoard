@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="500.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+      <children>
+  
+            <GridPane layoutX="12.0" layoutY="14.0" prefHeight="449.0" prefWidth="671.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="129.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="271.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="110.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="63.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="81.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="119.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="250.0" minHeight="6.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.0" minHeight="10.0" prefHeight="386.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="inpurtButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onInportButtonClicked" prefHeight="25.0" prefWidth="154.0" text="検索" GridPane.columnIndex="5" />
+                  <TextField fx:id="textField" prefHeight="25.0" prefWidth="225.0" GridPane.columnIndex="2" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <children>
+                        <TextField fx:id="addIdTextField" layoutX="14.0" layoutY="2.0" prefHeight="25.0" prefWidth="107.0" text="id" />
+                        <TextField fx:id="addMathTextField" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="107.0" text="数学の点数" />
+                        <TextField fx:id="addNameTextField" layoutX="14.0" layoutY="27.0" prefHeight="25.0" prefWidth="107.0" text="名前" />
+                        <TextField fx:id="addKokugoTextField" layoutX="14.0" layoutY="77.0" prefHeight="25.0" prefWidth="107.0" text="国語の点数" />
+                        <Button fx:id="addButton" layoutX="121.0" layoutY="2.0" mnemonicParsing="false" onAction="#onAddButtonClicked" prefHeight="25.0" prefWidth="89.0" text="追加" />
+                        <Button fx:id="Window2Button" layoutX="14.0" layoutY="139.0" mnemonicParsing="false" onAction="#onClickedWindow2ButtonClicked" text="window2へ" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="386.0" prefWidth="162.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <TextArea fx:id="querryLabel" prefHeight="22.0" prefWidth="421.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                  <TableView fx:id="tableView" prefHeight="398.0" prefWidth="439.0" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                    <columns>
+                      <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
+                      <TableColumn fx:id="nameColumn" prefWidth="216.0" text="名前" />
+                        <TableColumn prefWidth="141.0" text="点数">
+                           <columns>
+                              <TableColumn fx:id="mathColumn" prefWidth="67.0" text="数学" />
+                              <TableColumn fx:id="kokugoColumn" prefWidth="64.0" text="国語" />
+                           </columns>
+                        </TableColumn>
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="comboBox" onMouseClicked="#initComboBox" prefHeight="25.0" prefWidth="117.0" promptText="選択" />
+                  <ComboBox fx:id="sortComboBox" onMouseEntered="#initSortComboBox" prefWidth="150.0" promptText="選択" GridPane.columnIndex="3" />
+                  <Label prefHeight="17.0" prefWidth="44.0" text="から" GridPane.columnIndex="1" />
+                  <Label text="で並び替え" GridPane.columnIndex="4" />
+               </children>
+            </GridPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
